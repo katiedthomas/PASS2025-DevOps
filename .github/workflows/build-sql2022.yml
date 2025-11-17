@@ -42,6 +42,7 @@ jobs:
               sqlcmd -S localhost -U sa -P ${{ secrets.CONTAINER_SQL_PASSWORD }} -d master -Q "select getdate()"
               if [ $? -eq 0 ]
               then
+                  sqlcmd -S localhost -U sa -P ${{ secrets.CONTAINER_SQL_PASSWORD }} -d master -Q "EXEC sp_configure 'contained database authentication', 1; RECONFIGURE;"
                   echo "sql server ready"
                   break
               else
