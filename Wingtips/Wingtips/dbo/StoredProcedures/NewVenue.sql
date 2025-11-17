@@ -7,13 +7,13 @@ CREATE PROCEDURE [dbo].[NewVenue]
   AS
       IF @VenueId IS NULL
       BEGIN
-          RAISERROR ('Error. @VenueId must be specified', 11, 1)
+          RAISERROR ('Error. @VenueId must be specified!', 11, 1)
           RETURN 1
       END
   
       IF @VenueName IS NULL
       BEGIN
-          RAISERROR ('Error. @VenueName must be specified', 11, 1)
+          RAISERROR ('Error. @VenueName must be specified!', 11, 1)
           RETURN 1
       END
   
